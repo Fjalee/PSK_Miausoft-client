@@ -1,13 +1,19 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from 'react';
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import LandingPage from './pages/LandingPage';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <h2>Miausoft</h2>
-        </div>
-      </div>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+        </Routes>
+        <Footer />
+      </Router>
     );
   }
 }
