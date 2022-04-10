@@ -1,6 +1,6 @@
 import React from 'react';
 import Carousel from '../components/Carousel';
-import GoToOrderCreationCard from '../components/GoToOrderCreationCard';
+import GoToOrderCreationCard from '../components/CreateOrder/GoToOrderCreationCard';
 import TrackParcelCard from '../components/TrackParcelCard';
 
 function LandingPage() {

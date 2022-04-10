@@ -16,7 +16,16 @@
     "react/react-in-jsx-scope": "off",
     "linebreak-style": "off",
     "require-jsdoc": "off",
-    "max-len": ["error", 80],
-    "object-curly-spacing": "off"
+    "max-len": [
+      "error",
+      100,
+      {
+        "ignorePattern": "^import\\s.+\\sfrom\\s.+;$",
+        "ignoreUrls": true
+      }
+    ],
+    "object-curly-spacing": "off",
+    "quote-props": "off",
+    "operator-linebreak": "off"
   }
 }
