@@ -22,7 +22,7 @@ const styles = {
     textDecoration: 'none',
   },
   active: {
-    backgroundColor: 'white',
+    backgroundColor: '#e9ecef',
     borderBottom: '2px solid black',
     borderRight: '2px solid black',
     borderLeft: '2px solid black',
@@ -33,7 +33,6 @@ const styles = {
 function CreateOrderPage() {
   const navigate = useNavigate();
   const { deliveryType } = useParams();
-  console.log(deliveryType);
 
   const availableDeliveryTypes = [
     'From Home To Home',
@@ -47,6 +46,7 @@ function CreateOrderPage() {
       <div style={styles.tab}>
         {availableDeliveryTypes.map((type, index) => (
           <button
+            className="onHoverGray"
             onClick={() => navigate('/createOrder/' + type.replaceAll(' ', ''))}
             key={index}
             style={
