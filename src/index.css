@@ -12,3 +12,7 @@ body {
 #page {
   padding-bottom: 60px; /* Height of the footer */
 }
+
+.onHoverGray:hover {
+  background-color: #e9ecef !important;
+}

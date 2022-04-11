@@ -1,8 +1,17 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function GoToOrderCreationCard() {
+  const navigate = useNavigate();
+
+  const cardOnClick = () => navigate('/createOrder/FromHomeToHome');
+
   return (
-    <div className="card border-dark mb-3" style={{ maxWidth: '18rem' }}>
+    <div
+      className="card border-dark mb-3 onHoverGray"
+      style={{ maxWidth: '18rem', cursor: 'pointer' }}
+      onClick={cardOnClick}
+    >
       <div className="card-body text-dark">
         <h5 className="card-title">Deliver you parcel now!</h5>
       </div>
