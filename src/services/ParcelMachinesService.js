@@ -1,8 +1,8 @@
-import axios from 'axios';
-
-const apiUrl = 'http://localhost:3001';
+import Client from './Client';
 
 export const getParcelMachines = async () => {
-  const result = await axios.get(apiUrl + '/parcelMachine');
+  const result = await Client.get('/api/parcelmachines/');
+  console.log(result);
+
   return result.data;
 };

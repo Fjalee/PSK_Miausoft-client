@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import HomeForm from '../components/CreateOrder/HomeForm';
 import ParcelMachineForm from '../components/CreateOrder/ParcelMachineForm';
-import { getDimensionTypes } from '../services/CreateOrderService';
+import { createOrder } from '../services/CreateOrderService';
+import { getParcelDimensions } from '../services/ParcelDimensionsService';
 import { getParcelMachines } from '../services/ParcelMachinesService';
 import { Form, Button, Tooltip, OverlayTrigger } from 'react-bootstrap';
 import { PatchQuestionFill } from 'react-bootstrap-icons';
@@ -40,7 +41,7 @@ function CreateOrderPage() {
   const [parcelMachines, setParcelMachines] = useState([]);
 
   const [newParcel, setNewParcel] = useState({
-    deliveryTypeId: 1,
+    deliveryTypeId: 0,
     dimensionsId: 1,
     startAddress: null,
     destinationAddress: null,
@@ -50,7 +51,7 @@ function CreateOrderPage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const dimensions = await getDimensionTypes();
+      const dimensions = await getParcelDimensions();
       const machines = await getParcelMachines();
 
       setParcelDimensions(dimensions);
@@ -68,9 +69,9 @@ function CreateOrderPage() {
     'From Parcel Machine To Home',
   ];
 
-  const formSubmit = (e) => {
+  const formSubmit = async (e) => {
     e.preventDefault();
-    console.log(newParcel);
+    await createOrder(newParcel);
   };
 
   const dimensionsChange = (e) => {
@@ -105,14 +106,14 @@ function CreateOrderPage() {
     const startFormDoesntChange = () =>
       setNewParcel({
         ...newParcel,
-        deliveryTypeId: idx + 1,
+        deliveryTypeId: idx,
         destinationParcelMachineId: null,
         destinationAddress: null,
       });
     const destinationFormDoesntChange = () =>
       setNewParcel({
         ...newParcel,
-        deliveryTypeId: idx + 1,
+        deliveryTypeId: idx,
         startParcelMachineId: null,
         startAddress: null,
       });
