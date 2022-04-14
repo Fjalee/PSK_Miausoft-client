@@ -26,6 +26,7 @@
     ],
     "object-curly-spacing": "off",
     "quote-props": "off",
-    "operator-linebreak": "off"
+    "operator-linebreak": "off",
+    "react/prop-types": "off"
   }
 }
