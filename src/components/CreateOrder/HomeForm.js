@@ -1,19 +1,35 @@
 import React from 'react';
 import { Form } from 'react-bootstrap';
 
-function HomeForm({ start, onChange }) {
-  const helper = (first, second) => (start === true ? first : second);
-
+function HomeForm({ onChange }) {
   return (
     <div>
-      <Form.Label>{helper('Start', 'Destination')} Address</Form.Label>
+      <Form.Label>Post Code</Form.Label>
+      <Form.Control
+        onChange={onChange}
+        type="number"
+        required
+        placeholder="Enter post code"
+        name="postCode"
+      />
+      <Form.Label>City</Form.Label>
       <Form.Control
         onChange={onChange}
         type="text"
         required
-        placeholder={'Enter ' + helper('pickup', 'destination') + ' address'}
-        name={helper('startAddress', 'destinationAddress')}
+        placeholder="Enter city name"
+        name="townName"
       />
+      <Form.Label>Street Name</Form.Label>
+      <Form.Control
+        onChange={onChange}
+        type="text"
+        required
+        placeholder={'Enter street name'}
+        name="streetName"
+      />
+      <Form.Label>Building Number</Form.Label>
+      <Form.Control onChange={onChange} type="number" required name="buildingNumber" />
     </div>
   );
 }
