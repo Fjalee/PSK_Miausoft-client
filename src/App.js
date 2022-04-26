@@ -6,6 +6,8 @@ import Footer from './components/Footer';
 import LandingPage from './pages/LandingPage';
 import ErrorPage from './pages/ErrorPage';
 import CreateOrderPage from './pages/CreateOrderPage';
+import ParcelInformationPage from './pages/ParcelInformationPage';
+
 class App extends Component {
   render() {
     return (
@@ -13,10 +15,8 @@ class App extends Component {
         <Header />
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route
-            path="/createorder/:deliveryType"
-            element={<CreateOrderPage />}
-          />
+          <Route path="/createorder/:deliveryType" element={<CreateOrderPage />} />
+          <Route path="/parcel/:parcelId" element={<ParcelInformationPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />

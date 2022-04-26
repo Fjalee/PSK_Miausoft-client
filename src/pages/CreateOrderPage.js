@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import HomeForm from '../components/CreateOrder/HomeForm';
 import ParcelMachineForm from '../components/CreateOrder/ParcelMachineForm';
-import { getDimensionTypes } from '../services/CreateOrderService';
+import { createOrder } from '../services/CreateOrderService';
+import { getParcelDimensions } from '../services/ParcelDimensionsService';
 import { getParcelMachines } from '../services/ParcelMachinesService';
 import { Form, Button, Tooltip, OverlayTrigger } from 'react-bootstrap';
 import { PatchQuestionFill } from 'react-bootstrap-icons';
@@ -32,6 +33,34 @@ const styles = {
   },
 };
 
+const availableDeliveryTypes = [
+  'Home To Home',
+  'Home To Parcel Machine',
+  'Parcel Machine To Parcel Machine',
+  'Parcel Machine To Home',
+];
+
+const convertToContractDeliveryMethod = (method) => {
+  switch (method) {
+    case 'HomeToHome':
+      return 'HOME_TO_HOME';
+    case 'HomeToParcelMachine':
+      return 'HOME_TO_PARCEL_MACHINE';
+    case 'ParcelMachineToHome':
+      return 'PARCEL_MACHINE_TO_HOME';
+    case 'ParcelMachineToParcelMachine':
+      return 'PARCEL_MACHINE_TO_PARCEL_MACHINE';
+  }
+};
+
+const initialAddress = {
+  countryCode: 'LT',
+  postCode: null,
+  townName: null,
+  streetName: null,
+  buildingNumber: null,
+};
+
 function CreateOrderPage() {
   const navigate = useNavigate();
   const { deliveryType } = useParams();
@@ -40,17 +69,17 @@ function CreateOrderPage() {
   const [parcelMachines, setParcelMachines] = useState([]);
 
   const [newParcel, setNewParcel] = useState({
-    deliveryTypeId: 1,
+    deliveryMethod: convertToContractDeliveryMethod(deliveryType),
     dimensionsId: 1,
-    startAddress: null,
-    destinationAddress: null,
+    startAddress: initialAddress,
+    destinationAddress: initialAddress,
     startParcelMachineId: null,
     destinationParcelMachineId: null,
   });
 
   useEffect(() => {
     const fetchData = async () => {
-      const dimensions = await getDimensionTypes();
+      const dimensions = await getParcelDimensions();
       const machines = await getParcelMachines();
 
       setParcelDimensions(dimensions);
@@ -61,16 +90,9 @@ function CreateOrderPage() {
     fetchData();
   }, []);
 
-  const availableDeliveryTypes = [
-    'From Home To Home',
-    'From Home To Parcel Machine',
-    'From Parcel Machine To Parcel Machine',
-    'From Parcel Machine To Home',
-  ];
-
-  const formSubmit = (e) => {
+  const formSubmit = async (e) => {
     e.preventDefault();
-    console.log(newParcel);
+    await createOrder(newParcel);
   };
 
   const dimensionsChange = (e) => {
@@ -78,15 +100,24 @@ function CreateOrderPage() {
   };
 
   const startAddressChange = (e) => {
-    setNewParcel({ ...newParcel, startAddress: e.target.value, startParcelMachineId: null });
+    const newAddress = newParcel.destinationAddress;
+    newAddress[e.target.name] = e.target.value;
+    setNewParcel({
+      ...newParcel,
+      startAddress: newAddress,
+      startParcelMachineId: null,
+    });
   };
 
   const destinationAddressChange = (e) => {
+    const newAddress = newParcel.destinationAddress;
+    newAddress[e.target.name] = e.target.value;
     setNewParcel({
       ...newParcel,
-      destinationAddress: e.target.value,
+      destinationAddress: newAddress,
       destinationParcelMachineId: null,
     });
+    console.log(newParcel.destinationAddress);
   };
 
   const startParcelMachineChange = (e) => {
@@ -101,34 +132,34 @@ function CreateOrderPage() {
     });
   };
 
-  const onDeliveryTypeChange = (type, idx) => {
+  const onDeliveryTypeChange = (type) => {
     const startFormDoesntChange = () =>
       setNewParcel({
         ...newParcel,
-        deliveryTypeId: idx + 1,
+        deliveryMethod: convertToContractDeliveryMethod(type),
         destinationParcelMachineId: null,
-        destinationAddress: null,
+        destinationAddress: initialAddress,
       });
     const destinationFormDoesntChange = () =>
       setNewParcel({
         ...newParcel,
-        deliveryTypeId: idx + 1,
+        deliveryMethod: convertToContractDeliveryMethod(type),
         startParcelMachineId: null,
-        startAddress: null,
+        startAddress: initialAddress,
       });
 
     if (
-      (type === 'FromHomeToHome' && deliveryType === 'FromHomeToParcelMachine') ||
-      (type === 'FromHomeToParcelMachine' && deliveryType === 'FromHomeToHome') ||
-      (type === 'FromParcelMachineToParcelMachine' && deliveryType === 'FromParcelMachineToHome') ||
-      (type === 'FromParcelMachineToHome' && deliveryType === 'FromParcelMachineToParcelMachine')
+      (type === 'HomeToHome' && deliveryType === 'HomeToParcelMachine') ||
+      (type === 'HomeToParcelMachine' && deliveryType === 'HomeToHome') ||
+      (type === 'ParcelMachineToParcelMachine' && deliveryType === 'ParcelMachineToHome') ||
+      (type === 'ParcelMachineToHome' && deliveryType === 'ParcelMachineToParcelMachine')
     ) {
       startFormDoesntChange();
     } else if (
-      (type === 'FromHomeToHome' && deliveryType === 'FromParcelMachineToHome') ||
-      (type === 'FromHomeToParcelMachine' && deliveryType === 'FromParcelMachineToParcelMachine') ||
-      (type === 'FromParcelMachineToParcelMachine' && deliveryType === 'FromHomeToParcelMachine') ||
-      (type === 'FromParcelMachineToHome' && deliveryType === 'FromHomeToHome')
+      (type === 'HomeToHome' && deliveryType === 'ParcelMachineToHome') ||
+      (type === 'HomeToParcelMachine' && deliveryType === 'ParcelMachineToParcelMachine') ||
+      (type === 'ParcelMachineToParcelMachine' && deliveryType === 'HomeToParcelMachine') ||
+      (type === 'ParcelMachineToHome' && deliveryType === 'HomeToHome')
     ) {
       destinationFormDoesntChange();
     } else {
@@ -169,7 +200,7 @@ function CreateOrderPage() {
           >
             {parcelDimensions.map((obj) => (
               <option key={obj.id} value={obj.id}>
-                {obj.label}
+                {obj.size}
               </option>
             ))}
           </Form.Select>
@@ -179,7 +210,8 @@ function CreateOrderPage() {
               <Tooltip>
                 {parcelDimensions.map((dim) => (
                   <p key={dim.id}>
-                    <b>{dim.label}</b> - {dim.length}x{dim.width}x{dim.height}cm - {dim.price}&euro;
+                    <b>{dim.size}</b> - {dim.maxLength}x{dim.maxWidth}x{dim.maxHeight}cm -{' '}
+                    {dim.price}&euro;
                   </p>
                 ))}
               </Tooltip>
@@ -190,22 +222,17 @@ function CreateOrderPage() {
         </Form.Group>
         <div className="row mt-2">
           <Form.Group className="col">
-            {deliveryType === 'FromHomeToHome' || deliveryType === 'FromHomeToParcelMachine' ? (
-              <HomeForm start={true} onChange={startAddressChange} />
+            {deliveryType === 'HomeToHome' || deliveryType === 'HomeToParcelMachine' ? (
+              <HomeForm onChange={startAddressChange} />
             ) : (
-              <ParcelMachineForm
-                start={true}
-                onChange={startParcelMachineChange}
-                machines={parcelMachines}
-              />
+              <ParcelMachineForm onChange={startParcelMachineChange} machines={parcelMachines} />
             )}
           </Form.Group>
           <Form.Group className="col">
-            {deliveryType === 'FromHomeToHome' || deliveryType === 'FromParcelMachineToHome' ? (
-              <HomeForm start={false} onChange={destinationAddressChange} />
+            {deliveryType === 'HomeToHome' || deliveryType === 'ParcelMachineToHome' ? (
+              <HomeForm onChange={destinationAddressChange} />
             ) : (
               <ParcelMachineForm
-                start={false}
                 onChange={destinationParcelMachineChange}
                 machines={parcelMachines}
               />
@@ -214,7 +241,7 @@ function CreateOrderPage() {
         </div>
         <div className="mt-2 d-flex justify-content-center">
           <Button type="submit" className="btn-successs">
-            Continue
+            Pay
           </Button>
         </div>
       </Form>

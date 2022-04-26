@@ -23,7 +23,9 @@
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-react": "^7.29.4",
     "prettier": "^2.6.2",
-    "react-bootstrap-icons": "^1.8.1"
+    "react-barcode": "^1.4.1",
+    "react-bootstrap-icons": "^1.8.1",
+    "react-to-pdf": "^0.0.14"
   },
   "browserslist": {
     "production": [

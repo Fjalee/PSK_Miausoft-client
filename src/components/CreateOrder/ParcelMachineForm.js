@@ -16,7 +16,7 @@ function ParcelMachineForm({ start, machines, onChange }) {
           Choose Parcel Machine
         </option>
         {machines.map((obj) => (
-          <option key={obj.id} value={obj.id} disabled={!obj.hasEmptyLocker}>
+          <option key={obj.id} value={obj.id} disabled={obj.isEmpty}>
             {obj.address}
           </option>
         ))}
