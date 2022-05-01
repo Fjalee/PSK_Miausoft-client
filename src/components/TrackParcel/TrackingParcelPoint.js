@@ -6,18 +6,20 @@ const styles = {
   },
 };
 
-function TrackingParcelPoint({isDelivered = false}) {
+function TrackingParcelPoint({text, isDelivered = false}) {
   const svgSrc = `/tracking-point-${isDelivered}.svg`;
+  const imgAlt = isDelivered ? 'tracking point done' : 'tracking point not done';
 
   return (
-    <div id="page">
+    <>
       <img
-        className="d-block w-100"
+        className='d-block w-100'
         style={styles.image}
         src={svgSrc}
-        alt="tracking point done"
+        alt={imgAlt}
       />
-    </div>
+      <div>{text}</div>
+    </>
   );
 }
 
