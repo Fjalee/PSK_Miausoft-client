@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Container } from 'react-bootstrap';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 function Header() {
@@ -9,6 +9,9 @@ function Header() {
         <Navbar.Brand as={Link} to="/">
           MiaUps
         </Navbar.Brand>
+        <Nav.Link as={Link} to="/admin/parcels">
+          All Parcels
+        </Nav.Link>
       </Container>
     </Navbar>
   );
