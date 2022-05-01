@@ -1,5 +1,11 @@
 import React from 'react';
-import TrackingParcelPoint from './TrackingParcelPoint';
+import TrackingParcelPoint from './TrackingParcelPoint/TrackingParcelPoint';
+
+const styles = {
+  mainRow: {
+    padding: '10px',
+  },
+};
 
 function TrackingParcelHistoryRibon({trackingEvents}) {
   const trackingPointsList = [];
@@ -10,7 +16,16 @@ function TrackingParcelHistoryRibon({trackingEvents}) {
       text={e.text}/>);
   });
 
-  return <>{trackingPointsList}</>;
+  return (
+    <div className='row' style={styles.mainRow}>
+      <div className='col'>
+        {trackingPointsList}
+      </div>
+      <div className='col'>
+        parcel info (coming soon)
+      </div>
+    </div>
+  );
 }
 
 export default TrackingParcelHistoryRibon;

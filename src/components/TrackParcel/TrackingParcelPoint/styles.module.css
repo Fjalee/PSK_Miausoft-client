@@ -1,0 +1,25 @@
+.svg {
+    height: inherit;
+    padding: 10px;
+    padding-right: 0px;
+    float: right;
+}
+.text {
+    height: inherit;
+    display: inline-flex;
+    align-items: center;
+    padding-left: 10px;
+}
+.mainRow {
+    height: 40px;
+}
+.svgRow {
+    height: inherit;
+    padding-right: 0px;
+}
+.deliveredText {
+    color: #22bd00;
+}
+.notDeliveredText {
+    color: #838383;
+}
