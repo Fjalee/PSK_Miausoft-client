@@ -1,5 +1,5 @@
 import React from 'react';
-import TrackingParcelHistoryRibon from '../components/TrackParcel/TrackingParcelHistoryRibon';
+import TrackingParcelHistoryRibon from '../components/TrackParcel/TrackingParcelHistoryRibon/TrackingParcelHistoryRibon';
 
 function TrackParcel() {
   return (

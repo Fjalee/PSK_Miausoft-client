@@ -1,11 +1,6 @@
 import React from 'react';
-import TrackingParcelPoint from './TrackingParcelPoint/TrackingParcelPoint';
-
-const styles = {
-  mainRow: {
-    padding: '10px',
-  },
-};
+import TrackingParcelPoint from '../TrackingParcelPoint/TrackingParcelPoint';
+import styles from './styles.module.css';
 
 function TrackingParcelHistoryRibon({trackingEvents}) {
   const trackingPointsList = [];
@@ -17,7 +12,7 @@ function TrackingParcelHistoryRibon({trackingEvents}) {
   });
 
   return (
-    <div className='row' style={styles.mainRow}>
+    <div className={`row ${styles.mainRow}`}>
       <div className='col'>
         {trackingPointsList}
       </div>
