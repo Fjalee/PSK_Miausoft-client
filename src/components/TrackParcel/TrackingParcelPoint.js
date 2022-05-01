@@ -2,7 +2,7 @@ import React from 'react';
 
 const styles = {
   image: {
-    maxHeight: '50px',
+    maxHeight: '40px',
   },
 };
 
