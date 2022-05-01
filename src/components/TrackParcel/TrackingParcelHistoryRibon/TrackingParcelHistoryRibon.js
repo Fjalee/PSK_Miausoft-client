@@ -2,13 +2,13 @@ import React from 'react';
 import TrackingParcelPoint from '../TrackingParcelPoint/TrackingParcelPoint';
 import styles from './styles.module.css';
 
-function TrackingParcelHistoryRibon({trackingEvents}) {
+function TrackingParcelHistoryRibon({eventsInfo}) {
   const trackingPointsList = [];
-  trackingEvents.forEach((e, index)=>{
+  eventsInfo.forEach((e, index)=>{
     trackingPointsList.push(<TrackingParcelPoint
       key={index}
-      isDelivered={e.isDelivered}
-      text={e.text}/>);
+      eventInfo={e}
+    />);
   });
 
   return (
