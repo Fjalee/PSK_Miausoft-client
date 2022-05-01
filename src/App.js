@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import LandingPage from './pages/LandingPage';
 import ErrorPage from './pages/ErrorPage';
 import CreateOrderPage from './pages/CreateOrderPage';
+import TrackParcel from './pages/TrackParcel';
 import ParcelInformationPage from './pages/ParcelInformationPage';
 
 class App extends Component {
@@ -18,6 +19,7 @@ class App extends Component {
           <Route path="/createorder/:deliveryType" element={<CreateOrderPage />} />
           <Route path="/parcel/:parcelId" element={<ParcelInformationPage />} />
           <Route path="*" element={<ErrorPage />} />
+          <Route path="/trackParcel" element={<TrackParcel />} />
         </Routes>
         <Footer />
       </Router>
