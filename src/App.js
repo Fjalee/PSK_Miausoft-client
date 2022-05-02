@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 import LandingPage from './pages/LandingPage';
 import ErrorPage from './pages/ErrorPage';
 import CreateOrderPage from './pages/CreateOrderPage';
-import TrackParcel from './pages/TrackParcel';
+import TrackParcel from './pages/TrackParcel/TrackParcel';
 import ParcelInformationPage from './pages/ParcelInformationPage';
 
 class App extends Component {
