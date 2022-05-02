@@ -12,6 +12,7 @@ function TrackingParcelHistoryRibon({eventsInfo}) {
 
   return (
     <>
+      <h1>Where is the parcel?</h1>
       {trackingPointsList}
     </>
   );
