@@ -9,8 +9,12 @@ import { PatchQuestionFill } from 'react-bootstrap-icons';
 
 const styles = {
   tab: {
-    display: 'inline-flex',
+    display: 'flex',
     width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '10px',
+    paddingTop: '20px',
   },
   btn: {
     color: 'black',
@@ -20,14 +24,19 @@ const styles = {
     borderRight: '2px solid #e9ecef',
     borderLeft: '2px solid #e9ecef',
     flex: '1 1 auto',
-    borderRadius: '0px 0px 10px 10px',
+    borderRadius: '10px 10px 10px 10px',
     textDecoration: 'none',
+    paddingTop: '20px',
+    paddingBottom: '20px',
+    marginRight: '20',
+    fontFamily: 'Roboto',
   },
   active: {
     backgroundColor: '#e9ecef',
     borderBottom: '2px solid black',
     borderRight: '2px solid black',
     borderLeft: '2px solid black',
+    borderTop: '2px solid black',
     textDecoration: 'underline',
   },
 };

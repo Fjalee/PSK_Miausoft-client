@@ -15,7 +15,7 @@ const styles = {
 function Footer() {
   return (
     <div className="bg-dark" style={styles.footer}>
-      Footer
+      Copyright @ MiaUps
     </div>
   );
 }
