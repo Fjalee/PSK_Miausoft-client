@@ -17,7 +17,7 @@ function TrackParcelCard() {
       onClick={cardOnClick}
     >
       <div className="card-body text-dark">
-        <h5 className="card-title">Where is my Pardddcel?</h5>
+        <h5 className="card-title">Where is my Parcel?</h5>
       </div>
       <div className="card-footer bg-transparent border-dark">Footer</div>
     </div>
