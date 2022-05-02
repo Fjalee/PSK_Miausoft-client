@@ -1,8 +1,11 @@
-import axios from 'axios';
+import Client from './Client';
 
-const apiUrl = 'http://localhost:3001';
-
-export const getDimensionTypes = async () => {
-  const result = await axios.get(apiUrl + '/parcelDimensions');
-  return result.data;
+export const createOrder = async (obj) => {
+  return await Client.post('/paypal/createOrder', obj)
+    .then((response) => {
+      window.location.href = response.headers.location;
+    })
+    .catch((error) => {
+      console.log('Error ========>', error);
+    });
 };

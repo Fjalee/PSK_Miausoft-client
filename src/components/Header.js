@@ -20,7 +20,7 @@ function Header() {
         <Navbar.Collapse id="basic-navbar-nav" >
           <Nav className="me-auto">
             <Nav.Link href="#">Home</Nav.Link>
-            <Nav.Link href="#">Track</Nav.Link>
+            <Nav.Link as={Link} to="/admin/parcels"> All Parcels </Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <Navbar.Collapse className="justify-content-end">

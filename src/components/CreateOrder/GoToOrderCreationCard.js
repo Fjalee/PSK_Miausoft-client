@@ -10,7 +10,8 @@ const styles = {
 
 function GoToOrderCreationCard() {
   const navigate = useNavigate();
-  const cardOnClick = () => navigate('/createOrder/FromHomeToHome');
+
+  const cardOnClick = () => navigate('/createOrder/HomeToHome');
 
   return (
     <div
