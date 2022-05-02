@@ -7,6 +7,8 @@ import LandingPage from './pages/LandingPage';
 import ErrorPage from './pages/ErrorPage';
 import CreateOrderPage from './pages/CreateOrderPage';
 import ParcelInformationPage from './pages/ParcelInformationPage';
+import AllParcelsPage from './pages/AllParcelsPage';
+import DeliveryPlan from './pages/DeliveryPlan';
 
 class App extends Component {
   render() {
@@ -17,6 +19,8 @@ class App extends Component {
           <Route path="/" element={<LandingPage />} />
           <Route path="/createorder/:deliveryType" element={<CreateOrderPage />} />
           <Route path="/parcel/:parcelId" element={<ParcelInformationPage />} />
+          <Route path="/admin/parcels" element={<AllParcelsPage />} />
+          <Route path="/admin/deliveryplan/:parcelId" element={<DeliveryPlan />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />
