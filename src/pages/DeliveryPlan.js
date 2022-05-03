@@ -112,7 +112,11 @@ function DeliveryPlan() {
         </Button>
         <div className="m-2">
           {stops.map((x, idx) => {
-            return <div key={idx}>{x.address}</div>;
+            return (
+              <div key={idx}>
+                {idx + 1} {x.address}
+              </div>
+            );
           })}
         </div>
       </div>

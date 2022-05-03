@@ -1,15 +1,9 @@
 import React from 'react';
-
-const styles = {
-  card: {
-    maxWidth: '18rem',
-    cursor: 'pointer',
-  },
-};
+import '../styles/TrackParcelCard.css';
 
 function TrackParcelCard() {
   return (
-    <div className="card border-dark mb-3" style={styles.card}>
+    <div className="card border-dark mb-3 button-card">
       <div className="card-body text-dark">
         <h5 className="card-title">Where is my Parcel?</h5>
       </div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getAll } from '../services/ParcelsService';
 import { Table, Button } from 'react-bootstrap';
+import '../styles/pages/AllParcelsPage.css';
 
 function AllParcelsPage() {
   const navigate = useNavigate();
@@ -18,10 +19,10 @@ function AllParcelsPage() {
   }, []);
 
   return (
-    <div>
-      <Table striped bordered hover>
+    <div className="layout-allparcels">
+      <Table striped hover className="styled-table">
         <thead>
-          <tr>
+          <tr className="allparcels-names">
             <th>#</th>
             <th>Delivery Method</th>
             <th>Payment Status</th>
@@ -35,8 +36,9 @@ function AllParcelsPage() {
                 <td>{idx}</td>
                 <td>{x.deliveryMethod}</td>
                 <td>{x.payment.status}</td>
-                <td>
+                <td className="allparcels-buttons-flex">
                   <Button
+                    className="allparcels-button"
                     variant="dark"
                     onClick={() => {
                       navigate('/parcel/' + x.id);
@@ -45,6 +47,7 @@ function AllParcelsPage() {
                     View Information
                   </Button>
                   <Button
+                    className="allparcels-button"
                     variant="dark"
                     onClick={() => {
                       navigate('/admin/deliveryplan/' + x.id);

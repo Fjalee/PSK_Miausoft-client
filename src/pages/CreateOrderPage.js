@@ -7,6 +7,7 @@ import { getParcelDimensions } from '../services/ParcelDimensionsService';
 import { getParcelMachines } from '../services/ParcelMachinesService';
 import { Form, Button, Tooltip, OverlayTrigger } from 'react-bootstrap';
 import { PatchQuestionFill } from 'react-bootstrap-icons';
+import '../styles/pages/CreateOrderPage.css';
 
 const styles = {
   tab: {

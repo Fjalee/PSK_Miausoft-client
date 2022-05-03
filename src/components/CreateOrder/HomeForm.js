@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form } from 'react-bootstrap';
+import '../../styles/HomeForm.css';
 
 function HomeForm({ onChange }) {
   return (

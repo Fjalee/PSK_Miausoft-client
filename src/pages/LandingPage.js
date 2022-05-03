@@ -2,54 +2,36 @@ import React from 'react';
 import Carousel from '../components/Carousel';
 import GoToOrderCreationCard from '../components/CreateOrder/GoToOrderCreationCard';
 import TrackParcelCard from '../components/TrackParcelCard';
-import { Card, Button} from 'react-bootstrap';
-
-const styles = {
-  carousel: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  image: {
-    height: '15rem',
-    maxWidth: '18rem',
-  },
-  card: {
-    width: '18rem',
-    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
-    textAlign: 'center',
-  },
-};
-
+import { Card, Button } from 'react-bootstrap';
+import '../styles/pages/LandingPage.css';
 
 function LandingPage() {
   return (
     <div id="page">
-      <Carousel style={styles.carousel}/>
+      <Carousel className=".carousel-layout" />
       <div>
-        <div style={{justifyContent: 'center', marginTop: '100px', display: 'flex',
-          gap: '5rem', paddingBottom: '10rem'}}>
+        <div className="cards-flex">
           <div>
-            <Card className="text-center" style={styles.card}>
-              <Card.Img variant="top" src="deliver.jpg" style={styles.image}/>
+            <Card className="text-center card-layout">
+              <Card.Img variant="top" src="deliver.jpg" className="image-proportion" />
               <Card.Body>
                 <Card.Title>Card Title</Card.Title>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up the bulk
-                  the content.
+                  Some quick example text to build on the card title and make up the bulk the
+                  content.
                 </Card.Text>
                 <GoToOrderCreationCard />
               </Card.Body>
             </Card>
           </div>
           <div>
-            <Card className="text-center" style={styles.card}>
-              <Card.Img variant="top" src="parcel.jpg" style={styles.image}/>
+            <Card className="text-center  card-layout">
+              <Card.Img variant="top" src="parcel.jpg" className="image-proportion" />
               <Card.Body>
                 <Card.Title>Card Title</Card.Title>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up the bulk
-                  the content.
+                  Some quick example text to build on the card title and make up the bulk the
+                  content.
                 </Card.Text>
                 <TrackParcelCard />
               </Card.Body>

@@ -1,12 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
-const styles = {
-  card: {
-    maxWidth: '18rem',
-    cursor: 'pointer',
-  },
-};
+import '../../styles/TrackParcelCard.css';
 
 function GoToOrderCreationCard() {
   const navigate = useNavigate();
@@ -14,12 +8,8 @@ function GoToOrderCreationCard() {
   const cardOnClick = () => navigate('/createOrder/HomeToHome');
 
   return (
-    <div
-      className="card border-dark mb-3 onHoverGray"
-      style={{ maxWidth: '18rem', cursor: 'pointer' }}
-      onClick={cardOnClick}
-    >
-      <div className="card-body text-dark" style={styles.card}>
+    <div className="card border-dark mb-3 onHoverGray button-card" onClick={cardOnClick}>
+      <div className="card-body text-dark button-card">
         <h5 className="card-title">Deliver your parcel now!</h5>
       </div>
     </div>
