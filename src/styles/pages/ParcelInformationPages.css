@@ -1,0 +1,34 @@
+.barcode-container {
+}
+
+/* CSS */
+.pdf-button {
+  margin-left: 45%;
+  background-color: #fbeee0;
+  border: 2px solid rgb(252, 103, 49);
+  border-radius: 30px;
+  box-shadow: rgb(252, 103, 49) 4px 4px 0 0;
+  color: rgb(252, 103, 49);
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.pdf-button:hover {
+  background-color: #fff;
+}
+
+.pdf-button:active {
+  box-shadow: rgb(252, 103, 49) 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}

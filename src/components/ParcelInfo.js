@@ -4,7 +4,7 @@ import '../styles/ParcelInfo.css';
 function ParcelInfo({ data }) {
   return (
     <div>
-      <div className="card">
+      <div className="card-parcel-info">
         <div className="title">Delivery Information</div>
         <div className="info">
           <div className="row">
