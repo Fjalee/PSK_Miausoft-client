@@ -10,14 +10,6 @@ import { PatchQuestionFill } from 'react-bootstrap-icons';
 import '../styles/pages/CreateOrderPage.css';
 
 const styles = {
-  tab: {
-    display: 'flex',
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: '10px',
-    paddingTop: '20px',
-  },
   btn: {
     color: 'black',
     backgroundColor: 'white',
@@ -78,6 +70,8 @@ function CreateOrderPage() {
   const [parcelDimensions, setParcelDimensions] = useState([]);
   const [parcelMachines, setParcelMachines] = useState([]);
 
+  const [validated, setValidated] = useState(false);
+
   const [newParcel, setNewParcel] = useState({
     deliveryMethod: convertToContractDeliveryMethod(deliveryType),
     dimensionsId: 1,
@@ -101,8 +95,17 @@ function CreateOrderPage() {
   }, []);
 
   const formSubmit = async (e) => {
-    e.preventDefault();
-    await createOrder(newParcel);
+    const form = e.currentTarget;
+
+    if (form.checkValidity() === false) {
+      e.preventDefault();
+      e.stopPropagation();
+    } else {
+      e.preventDefault();
+      await createOrder(newParcel);
+    }
+
+    setValidated(true);
   };
 
   const dimensionsChange = (e) => {
@@ -182,7 +185,7 @@ function CreateOrderPage() {
 
   return (
     <div id="page">
-      <div style={styles.tab}>
+      <div className="tab">
         {availableDeliveryTypes.map((type, index) => (
           <button
             className="onHoverGray"
@@ -198,8 +201,8 @@ function CreateOrderPage() {
           </button>
         ))}
       </div>
-      <Form className="mt-2 p-5" onSubmit={formSubmit}>
-        <Form.Group className="d-flex justify-content-center align-items-center">
+      <Form className="mt-2 p-5" onSubmit={formSubmit} noValidate validated={validated}>
+        <Form.Group className="d-flex justify-content-center align-items-center parcel-size">
           <Form.Label>Parcel Size: </Form.Label>
           <Form.Select
             className="mx-2"
@@ -216,10 +219,10 @@ function CreateOrderPage() {
           <OverlayTrigger
             placement={'right'}
             overlay={
-              <Tooltip>
+              <Tooltip className="overlay-parcel-size">
                 {parcelDimensions.map((dim) => (
                   <p key={dim.id}>
-                    <b>{dim.size}</b> - {dim.maxLength}x{dim.maxWidth}x{dim.maxHeight}cm -{' '}
+                    <b>{dim.size}</b> - {dim.maxLength} x {dim.maxWidth} x {dim.maxHeight}cm -{' '}
                     {dim.price}&euro;
                   </p>
                 ))}
@@ -249,8 +252,8 @@ function CreateOrderPage() {
           </Form.Group>
         </div>
         <div className="mt-2 d-flex justify-content-center">
-          <Button type="submit" className="btn-successs">
-            Pay
+          <Button type="submit" className="btn-successs paypal-button">
+            PayPal
           </Button>
         </div>
       </Form>

@@ -1,27 +1,73 @@
 import React from 'react';
+import '../styles/ParcelInfo.css';
 
 function ParcelInfo({ data }) {
   return (
     <div>
-      <p>Payment status: {data.payment.status}</p>
-      <p>
-        Price: {data.payment.amount} {data.payment.currencyCode}
-      </p>
-      <p>Delivery Method: {data.deliveryMethod}</p>
-      <p>Parcel size: {data.dimensions.size}</p>
+      <div className="card">
+        <div className="title">Delivery Information</div>
+        <div className="info">
+          <div className="row">
+            <div className="col-7">
+              <span id="heading">Payment Status</span>
+              <br />
+              <span id="details">{data.payment.status}</span>
+            </div>
+            <div className="col-5 pull-right">
+              <span id="heading">Delivery Method</span>
+              <br />
+              <span id="details">{data.deliveryMethod}</span>
+            </div>
 
-      {data.deliveryMethod === 'HOME_TO_HOME' ||
-      data.deliveryMethod === 'HOME_TO_PARCEL_MACHINE' ? (
-        <p>Start Address: {data.startAddress}</p>
-      ) : (
-        <p>Start Address: {data.startParcelMachine.address} (PARCEL MACHINE)</p>
-      )}
-      {data.deliveryMethod === 'HOME_TO_HOME' ||
-      data.deliveryMethod === 'PARCEL_MACHINE_TO_HOME' ? (
-        <p>Destination Address: {data.destinationAddress}</p>
-      ) : (
-        <p>Destination Address: {data.destinationParcelMachine.address} (PARCEL MACHINE)</p>
-      )}
+            <div className="col-7">
+              <span id="heading">Start Address</span>
+              <br />
+              <span id="details">
+                {' '}
+                {data.deliveryMethod === 'HOME_TO_HOME' ||
+                data.deliveryMethod === 'HOME_TO_PARCEL_MACHINE' ? (
+                  <p>{data.startAddress}</p>
+                ) : (
+                  <p>{data.startParcelMachine.address} (PARCEL MACHINE)</p>
+                )}
+              </span>
+            </div>
+            <div className="col-5 pull-right">
+              <span id="heading">Destination Address</span>
+              <br />
+              <span id="details">
+                {' '}
+                {data.deliveryMethod === 'HOME_TO_HOME' ||
+                data.deliveryMethod === 'PARCEL_MACHINE_TO_HOME' ? (
+                  <p>{data.destinationAddress}</p>
+                ) : (
+                  <p>{data.destinationParcelMachine.address} (PARCEL MACHINE)</p>
+                )}
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className="pricing">
+          <div className="row">
+            <div className="col-9">
+              <span id="name">Delivery Price:</span>
+            </div>
+            <div className="col-3">
+              <span id="price">
+                {data.payment.amount} {data.payment.currencyCode}
+              </span>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-9">
+              <span id="name">Parcel Size:</span>
+            </div>
+            <div className="col-3">
+              <span id="price">{data.dimensions.size}</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&family=Yellowtail&display=swap');
+
+.parcel-size {
+  margin-bottom: 7%;
+  font-family: 'Roboto', sans-serif;
+}
+
+.paypal-button {
+  margin-top: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.overlay-parcel-size {
+  font-family: 'Roboto', sans-serif;
+}
+
+.tab {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  padding-top: 20px;
+}
