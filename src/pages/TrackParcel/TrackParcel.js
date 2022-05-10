@@ -1,6 +1,6 @@
 import React from 'react';
 import TrackingParcelHistoryRibon from '../../components/TrackParcel/TrackingParcelHistoryRibon';
-import TrackingParcelInfoRibon from '../../components/TrackParcel/TrackingParcelInfoRibon/TrackingParcelInfoRibon';
+import ParcelDetails from '../../components/ParcelDetails';
 import styles from './styles.module.css';
 
 const tempEventInfo = [
@@ -12,11 +12,7 @@ const tempEventInfo = [
   {text: 'testt5', date: new Date(2022, 1, 6, 14, 56, 54), isDelivered: false},
 ];
 
-const tempParcelInfo = {
-  address: 'Lietuva, Vilnius, Didlaukio g.59',
-  size: 'S',
-  weigth: 53.34,
-};
+const parcelId = 'c470baa9-f3cc-4e01-aa7f-9d83ba397d2c';
 
 function TrackParcel() {
   return (
@@ -25,7 +21,7 @@ function TrackParcel() {
         <TrackingParcelHistoryRibon eventsInfo={tempEventInfo}/>
       </div>
       <div className={`col ${styles.mainCol}`}>
-        <TrackingParcelInfoRibon parcelInfo={tempParcelInfo}/>
+        <ParcelDetails parcelId={parcelId}/>
       </div>
     </div>
   );
