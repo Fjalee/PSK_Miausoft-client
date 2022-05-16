@@ -2,7 +2,7 @@ import React from 'react';
 import Carousel from '../components/Carousel';
 import GoToOrderCreationCard from '../components/CreateOrder/GoToOrderCreationCard';
 import TrackParcelCard from '../components/TrackParcelCard';
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import '../styles/pages/LandingPage.css';
 
 function LandingPage() {
@@ -38,15 +38,6 @@ function LandingPage() {
             </Card>
           </div>
         </div>
-        <Card className="text-center">
-          <Card.Body>
-            <Card.Title>Special title treatment</Card.Title>
-            <Card.Text>
-              With supporting text below as a natural lead-in to additional content.
-            </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
-          </Card.Body>
-        </Card>
       </div>
     </div>
   );

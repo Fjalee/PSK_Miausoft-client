@@ -4,6 +4,7 @@ import { getParcel, createDeliveryPlan } from '../services/ParcelsService';
 import { getParcelMachines } from '../services/ParcelMachinesService';
 import { getWarehouses } from '../services/WarehousesService';
 import { Form, Button } from 'react-bootstrap';
+import '../styles/pages/DeliveryPlan.css';
 
 function DeliveryPlan() {
   const navigate = useNavigate();
@@ -106,22 +107,26 @@ function DeliveryPlan() {
 
   return (
     <div className="row" style={{ width: '100%' }}>
-      <div className="col-4">
-        <Button variant="dark" className="w-100 m-2" onClick={submitPlanCreation}>
-          Complete
+      <div className="col-4 progress-bar-container">
+        <Button className="w-100 m-2 complete-button" onClick={submitPlanCreation}>
+          Complete Task
         </Button>
-        <div className="m-2">
+        <div className="m-2 test">
           {stops.map((x, idx) => {
             return (
               <div key={idx}>
-                {idx + 1} {x.address}
+                <li>
+                  <div className="vertical-line"></div>
+                  {x.address}
+                </li>
               </div>
             );
           })}
         </div>
       </div>
-      <div className="col-8">
-        <Form.Label>Parcel Machine</Form.Label>
+      <div className="col-8 choose-stops-container">
+        <h2 className="admin-panel-title">Admin Panel</h2>
+        <Form.Label className="parcel-machine-input-label">Parcel Machine</Form.Label>
         <Form.Select value={selectedParcelMachine} onChange={parcelMachineOnChange}>
           <option value="" hidden>
             Choose Parcel Machine
@@ -136,7 +141,7 @@ function DeliveryPlan() {
             </option>
           ))}
         </Form.Select>
-        <Form.Label>Warehouse</Form.Label>
+        <Form.Label className="parcel-machine-input-label">Warehouse</Form.Label>
         <Form.Select value={selectedWarehouse} onChange={warehouseOnChange}>
           <option value="" hidden>
             Choose Warehouse
@@ -147,7 +152,7 @@ function DeliveryPlan() {
             </option>
           ))}
         </Form.Select>
-        <Form.Label>After</Form.Label>
+        <Form.Label className="parcel-machine-input-label">After</Form.Label>
         <Form.Select
           value={selectedStop}
           onChange={(e) => {
@@ -160,8 +165,8 @@ function DeliveryPlan() {
             </option>
           ))}
         </Form.Select>
-        <Button variant="dark" onClick={addStopSubmit} disabled={disabledAddBtn}>
-          Add stop
+        <Button className="add-stop-btn" onClick={addStopSubmit} disabled={disabledAddBtn}>
+          Add additional stop
         </Button>
       </div>
     </div>
