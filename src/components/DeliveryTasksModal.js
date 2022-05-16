@@ -20,7 +20,7 @@ const convertStartToNiceString = (task) => {
 
 const convertDestToNiceString = (task) => {
   if (task.destinationAddress != null) {
-    return task.startAddress;
+    return task.destinationAddress;
   } else if (task.destinationParcelMachineLocker != null) {
     return (
       '(PM)' +
