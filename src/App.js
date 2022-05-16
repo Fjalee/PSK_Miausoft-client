@@ -6,7 +6,6 @@ import Footer from './components/Footer';
 import LandingPage from './pages/LandingPage';
 import ErrorPage from './pages/ErrorPage';
 import CreateOrderPage from './pages/CreateOrderPage';
-import TrackParcel from './pages/TrackParcel/TrackParcel';
 import ParcelInformationPage from './pages/ParcelInformationPage';
 import AllParcelsPage from './pages/AllParcelsPage';
 import DeliveryPlan from './pages/DeliveryPlan';
@@ -23,7 +22,6 @@ class App extends Component {
           <Route path="/admin/parcels" element={<AllParcelsPage />} />
           <Route path="/admin/deliveryplan/:parcelId" element={<DeliveryPlan />} />
           <Route path="*" element={<ErrorPage />} />
-          <Route path="/trackParcel" element={<TrackParcel />} />
         </Routes>
         <Footer />
       </Router>

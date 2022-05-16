@@ -1,13 +1,10 @@
 import React from 'react';
 import TrackingParcelPoint from './TrackingParcelPoint/TrackingParcelPoint';
 
-function TrackingParcelHistoryRibon({eventsInfo}) {
+function TrackingParcelHistoryRibon({ eventsInfo }) {
   const trackingPointsList = [];
-  eventsInfo.forEach((e, index)=>{
-    trackingPointsList.push(<TrackingParcelPoint
-      key={index}
-      eventInfo={e}
-    />);
+  eventsInfo.forEach((e, index) => {
+    trackingPointsList.push(<TrackingParcelPoint key={index} eventInfo={e} />);
   });
 
   return (
