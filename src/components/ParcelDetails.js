@@ -5,7 +5,7 @@ import ErrorPage from '../pages/ErrorPage';
 import Pdf from 'react-to-pdf';
 import ParcelInfo from './ParcelInfo';
 
-function ParcelDetails({parcelId}) {
+function ParcelDetails({ parcelId }) {
   const ref = useRef();
   const [parcelInfo, setParcelInfo] = useState(null);
 
@@ -17,8 +17,6 @@ function ParcelDetails({parcelId}) {
 
     fetchData();
   }, []);
-
-  console.log(parcelInfo);
 
   return parcelInfo != null && parcelInfo.payment.status === 'COMPLETED' ? (
     <div>

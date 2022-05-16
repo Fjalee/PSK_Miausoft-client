@@ -49,7 +49,6 @@ function AllParcelsPage() {
       return;
     };
 
-    console.log('UP');
     fetchData();
   }, [forceUpdate]);
 
