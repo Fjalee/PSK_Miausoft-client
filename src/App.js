@@ -26,13 +26,17 @@ class App extends Component {
             <Route path="/admin" element={
               <ProtectedRoute roles={[ROLES.ADMIN]}>
                 <div>Admin</div>
-                <Button onClick={()=>{Client.get("/secured/")}}>button</Button>
+                <Button onClick={()=>{
+                  Client.get('/secured/');
+                }}>button</Button>
               </ProtectedRoute>
             } />
             <Route path="/courier" element={
               <ProtectedRoute roles={[ROLES.COURIERS]}>
                 <div>Courier</div>
-                <Button onClick={()=>{Client.get("/secured/")}}>button</Button>
+                <Button onClick={()=>{
+                  Client.get('/secured/');
+                }}>button</Button>
               </ProtectedRoute>
             } />
             <Route path="*" element={<ErrorPage />} />
