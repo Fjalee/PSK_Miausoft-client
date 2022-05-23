@@ -1,9 +1,11 @@
 import React from 'react';
-import { Navbar, Container } from 'react-bootstrap';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { SignInButton } from './SignInButton';
 import { SignOutButton } from './SignOutButton';
 import { useIsAuthenticated } from '@azure/msal-react';
+import ProtectedComponent from '../security/ProtectedComponent';
+import { ROLES } from '../security/Roles';
 
 function Header() {
   const isAuthenticated = useIsAuthenticated();
@@ -13,6 +15,11 @@ function Header() {
         <Navbar.Brand as={Link} to="/">
           MiaUps
         </Navbar.Brand>
+        <ProtectedComponent roles={[ROLES.ADMIN]}>
+          <Nav.Link as={Link} to="/admin/parcels">
+            All Parcels
+          </Nav.Link>
+        </ProtectedComponent>
         { isAuthenticated ? <SignOutButton /> : <SignInButton /> }
       </Container>
     </Navbar>

@@ -71,8 +71,8 @@ function CreateOrderPage() {
   const [newParcel, setNewParcel] = useState({
     deliveryMethod: convertToContractDeliveryMethod(deliveryType),
     dimensionsId: 1,
-    startAddress: initialAddress,
-    destinationAddress: initialAddress,
+    startAddress: { ...initialAddress },
+    destinationAddress: { ...initialAddress },
     startParcelMachineId: null,
     destinationParcelMachineId: null,
   });
@@ -100,7 +100,7 @@ function CreateOrderPage() {
   };
 
   const startAddressChange = (e) => {
-    const newAddress = newParcel.destinationAddress;
+    const newAddress = newParcel.startAddress;
     newAddress[e.target.name] = e.target.value;
     setNewParcel({
       ...newParcel,
@@ -117,7 +117,6 @@ function CreateOrderPage() {
       destinationAddress: newAddress,
       destinationParcelMachineId: null,
     });
-    console.log(newParcel.destinationAddress);
   };
 
   const startParcelMachineChange = (e) => {

@@ -10,8 +10,8 @@ import ParcelInformationPage from './pages/ParcelInformationPage';
 import ProtectedRoute from './security/ProtectedRoute';
 import { ROLES } from './security/Roles';
 import { AxiosInterceptor } from './services/Client';
-import { Button } from 'react-bootstrap';
-import Client from './services/Client';
+import AllParcelsPage from './pages/AllParcelsPage';
+import DeliveryPlan from './pages/DeliveryPlan';
 
 class App extends Component {
   render() {
@@ -23,20 +23,14 @@ class App extends Component {
             <Route path="/" element={<LandingPage />} />
             <Route path="/createorder/:deliveryType" element={<CreateOrderPage />} />
             <Route path="/parcel/:parcelId" element={<ParcelInformationPage />} />
-            <Route path="/admin" element={
+            <Route path="/admin/parcels" element={
               <ProtectedRoute roles={[ROLES.ADMIN]}>
-                <div>Admin</div>
-                <Button onClick={()=>{
-                  Client.get('/secured/');
-                }}>button</Button>
+                <AllParcelsPage />
               </ProtectedRoute>
             } />
-            <Route path="/courier" element={
-              <ProtectedRoute roles={[ROLES.COURIERS]}>
-                <div>Courier</div>
-                <Button onClick={()=>{
-                  Client.get('/secured/');
-                }}>button</Button>
+            <Route path="/admin/deliveryplan/:parcelId" element={
+              <ProtectedRoute roles={[ROLES.ADMIN]}>
+                <DeliveryPlan />
               </ProtectedRoute>
             } />
             <Route path="*" element={<ErrorPage />} />
