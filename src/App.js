@@ -1,4 +1,3 @@
-/* eslint-disable */
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Component } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -10,7 +9,7 @@ import CreateOrderPage from './pages/CreateOrderPage';
 import ParcelInformationPage from './pages/ParcelInformationPage';
 import ProtectedRoute from './security/ProtectedRoute';
 import { ROLES } from './security/Roles';
-import { AxiosInterceptor } from './security/AxiosInterceptor';
+import { AxiosInterceptor } from './services/Client';
 import { Button } from 'react-bootstrap';
 import Client from './services/Client';
 
