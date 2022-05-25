@@ -9,14 +9,7 @@ function Header() {
       <Container className="navbar-container">
         <Navbar.Brand as={Link} to="/">
           {' '}
-          <img
-            alt=""
-            src="/mia-logo.png"
-            width="40"
-            height="40"
-            className="d-inline-block align-top"
-          />{' '}
-          MiaUps
+          <img alt="" src="/mia-logo.png" width="40" height="40" className="logo" /> MiaUps
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

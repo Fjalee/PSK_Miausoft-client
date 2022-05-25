@@ -108,16 +108,16 @@ function DeliveryPlan() {
   return (
     <div className="row" style={{ width: '100%' }}>
       <div className="col-4 progress-bar-container">
-        <Button className="w-100 m-2 complete-button" onClick={submitPlanCreation}>
+        <Button className="w-100 complete-button" onClick={submitPlanCreation}>
           Complete Task
         </Button>
         <div className="m-2 test">
           {stops.map((x, idx) => {
             return (
               <div key={idx}>
-                <li>
-                  <div className="vertical-line"></div>
-                  {x.address}
+                <li className="list-no-effect">
+                  <img src="/box.jpg" className="deliver-truck-img" />
+                  <span className="delivery-stops">{x.address}</span>
                 </li>
               </div>
             );

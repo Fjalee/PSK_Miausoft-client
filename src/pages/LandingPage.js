@@ -15,10 +15,9 @@ function LandingPage() {
             <Card className="text-center card-layout">
               <Card.Img variant="top" src="deliver.jpg" className="image-proportion" />
               <Card.Body>
-                <Card.Title>Card Title</Card.Title>
+                <Card.Title>What to deliver something?</Card.Title>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up the bulk the
-                  content.
+                  With our intuitave and fast website, delivering was never so easy!
                 </Card.Text>
                 <GoToOrderCreationCard />
               </Card.Body>
@@ -28,11 +27,8 @@ function LandingPage() {
             <Card className="text-center  card-layout">
               <Card.Img variant="top" src="parcel.jpg" className="image-proportion" />
               <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up the bulk the
-                  content.
-                </Card.Text>
+                <Card.Title>Dont know where is parcel?</Card.Title>
+                <Card.Text>Find your parcel anywhere! Smart tracking is our key success!</Card.Text>
                 <TrackParcelCard />
               </Card.Body>
             </Card>
