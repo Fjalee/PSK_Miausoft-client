@@ -16,3 +16,7 @@ body {
 .onHoverGray:hover {
   background-color: #e9ecef !important;
 }
+
+.modal-90w {
+  min-width: 90%;
+}

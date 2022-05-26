@@ -21,7 +21,7 @@ export const getAll = async () => {
 };
 
 export const createDeliveryPlan = async (obj) => {
-  return await Client.post('/parcels/deliveryplan', obj)
+  return await Client.post('/deliverytask/create/plan', obj)
     .then((response) => {
       return response;
     })

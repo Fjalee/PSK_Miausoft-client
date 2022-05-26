@@ -1,43 +1,48 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Barcode from 'react-barcode';
 import { getParcel } from '../services/ParcelsService';
-import ErrorPage from './ErrorPage';
 import Pdf from 'react-to-pdf';
 import ParcelInfo from '../components/ParcelInfo';
 import '../styles/pages/ParcelInformationPages.css';
+import { getAllRecords } from '../services/DeliveryRecordsService';
+import ParcelDetails from '../components/ParcelDetails';
+import TrackingParcelHistoryRibon from '../components/TrackParcel/TrackingParcelHistoryRibon';
+import styles from '../commonStyles.module.css';
+import ErrorPage from '../pages/ErrorPage';
 
-function ParcelInformation() {
-  const ref = useRef();
+function ParcelInformationPage() {
   const { parcelId } = useParams();
   const [parcelInfo, setParcelInfo] = useState(null);
+  const [deliveryRecords, setDeliveryRecords] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       const parcel = await getParcel(parcelId);
+      const deliveryRecords = await getAllRecords(parcelId);
+
       setParcelInfo(parcel);
+      setDeliveryRecords(deliveryRecords);
     };
 
     fetchData();
   }, []);
 
   return parcelInfo != null && parcelInfo.payment.status === 'COMPLETED' ? (
-    <div>
-      <div className="d-flex justify-content-center barcode-container" ref={ref}>
-        <Barcode value={parcelId} />
+    deliveryRecords != null ? (
+      <div className={`row row-cols-2 ${styles.mainRow}`}>
+        <div className={`col ${styles.mainCol}`}>
+          <TrackingParcelHistoryRibon eventsInfo={deliveryRecords} />
+        </div>
+        <div className={`col ${styles.mainCol}`}>
+          <ParcelDetails parcelInfo={parcelInfo} />
+        </div>
       </div>
-      <Pdf targetRef={ref} filename="parcelCode.pdf">
-        {({ toPdf }) => (
-          <button className="pdf-button" onClick={toPdf}>
-            Generate PDF
-          </button>
-        )}
-      </Pdf>
-      <ParcelInfo data={parcelInfo} />
-    </div>
+    ) : (
+      <ParcelDetails parcelInfo={parcelInfo} />
+    )
   ) : (
     <ErrorPage />
   );
 }
 
-export default ParcelInformation;
+export default ParcelInformationPage;
