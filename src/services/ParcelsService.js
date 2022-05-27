@@ -10,6 +10,16 @@ export const getParcel = async (id) => {
     });
 };
 
+export const editParcel = async (parcel) => {
+  return await Client.post('/parcels/' + parcel.id, parcel)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      return error.response.data;
+    });
+};
+
 export const getAll = async () => {
   return await Client.get('/parcels/getAll')
     .then((response) => {

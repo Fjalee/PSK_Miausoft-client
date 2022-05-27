@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form } from 'react-bootstrap';
 
-function HomeForm({ onChange }) {
+function HomeForm({ onChange, address }) {
   return (
     <div>
       <Form.Label>Post Code</Form.Label>
@@ -11,6 +11,7 @@ function HomeForm({ onChange }) {
         required
         placeholder="Enter post code"
         name="postCode"
+        value={address?.postCode}
       />
       <Form.Label>City</Form.Label>
       <Form.Control
@@ -19,6 +20,7 @@ function HomeForm({ onChange }) {
         required
         placeholder="Enter city name"
         name="townName"
+        value={address?.townName}
       />
       <Form.Label>Street Name</Form.Label>
       <Form.Control
@@ -27,9 +29,16 @@ function HomeForm({ onChange }) {
         required
         placeholder={'Enter street name'}
         name="streetName"
+        value={address?.streetName}
       />
       <Form.Label>Building Number</Form.Label>
-      <Form.Control onChange={onChange} type="number" required name="buildingNumber" />
+      <Form.Control
+        onChange={onChange}
+        type="number"
+        required
+        name="buildingNumber"
+        value={address?.buildingNumber}
+      />
     </div>
   );
 }

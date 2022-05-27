@@ -12,6 +12,7 @@ import { ROLES } from './security/Roles';
 import { AxiosInterceptor } from './services/Client';
 import AllParcelsPage from './pages/AllParcelsPage';
 import DeliveryPlan from './pages/DeliveryPlan';
+import EditOrderPage from './pages/EditOrderPage';
 
 class App extends Component {
   render() {
@@ -26,6 +27,11 @@ class App extends Component {
             <Route path="/admin/parcels" element={
               <ProtectedRoute roles={[ROLES.ADMIN]}>
                 <AllParcelsPage />
+              </ProtectedRoute>
+            } />
+            <Route path="/admin/editorder/:parcelId/:deliveryType" element={
+              <ProtectedRoute roles={[ROLES.ADMIN]}>
+                <EditOrderPage />
               </ProtectedRoute>
             } />
             <Route path="/admin/deliveryplan/:parcelId" element={
