@@ -12,22 +12,22 @@ function Carousel() {
           alt="First slide"
         />
         <BootStrapCarousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h3>Welcome to MiaUps</h3>
+          <p>New way to share your belongings!</p>
         </BootStrapCarousel.Caption>
       </BootStrapCarousel.Item>
       <BootStrapCarousel.Item interval={3000}>
         <img className="d-block w-100 image-carousel" src="/slider2.jpg" alt="Second slide" />
         <BootStrapCarousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h3>Our vision</h3>
+          <p>To provide the freedom of sending anything to anyone, effortlessly and swiftly!</p>
         </BootStrapCarousel.Caption>
       </BootStrapCarousel.Item>
       <BootStrapCarousel.Item interval={3000}>
         <img className="d-block w-100 image-carousel" src="/slider3.jpg" alt="Third slide" />
         <BootStrapCarousel.Caption>
-          <h3>Third slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h3>Fast, effective, cheap</h3>
+          <p>Our main pillars!</p>
         </BootStrapCarousel.Caption>
       </BootStrapCarousel.Item>
     </BootStrapCarousel>

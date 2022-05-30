@@ -1,25 +1,25 @@
 .svg {
-    height: inherit;
-    padding: 10px;
-    padding-right: 0px;
-    float: right;
+  height: inherit;
+  padding: 10px;
+  padding-right: 0px;
+  float: right;
 }
 .text {
-    height: inherit;
-    display: inline-flex;
-    align-items: center;
-    padding-left: 10px;
+  height: inherit;
+  display: inline-flex;
+  align-items: center;
+  padding-left: 10px;
 }
 .mainRow {
-    height: 40px;
+  height: 40px;
 }
 .svgRow {
-    height: inherit;
-    padding-right: 0px;
+  height: inherit;
+  padding-right: 0px;
 }
 .deliveredText {
-    color: #22bd00;
+  color: #22bd00;
 }
 .notDeliveredText {
-    color: #838383;
+  color: #838383;
 }

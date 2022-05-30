@@ -27,8 +27,8 @@ function LandingPage() {
             <Card className="text-center  card-layout">
               <Card.Img variant="top" src="parcel.jpg" className="image-proportion" />
               <Card.Body>
-                <Card.Title>Dont know where is parcel?</Card.Title>
-                <Card.Text>Find your parcel anywhere! Smart tracking is our key success!</Card.Text>
+                <Card.Title>Where is parcel?</Card.Title>
+                <Card.Text>Find your parcel anywhere! Tracking is our top gun!</Card.Text>
                 <TrackParcelCard />
               </Card.Body>
             </Card>

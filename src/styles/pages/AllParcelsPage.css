@@ -2,10 +2,10 @@
 
 .styled-table {
   border: collapse;
-  margin: 25px 0;
+  margin-left: -25%;
   font-size: 0.9em;
   font-family: 'Roboto', sans-serif;
-  min-width: 400px;
+  min-width: 00px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -54,4 +54,10 @@
 
 .allparcels-button {
   font-family: 'Roboto', sans-serif;
+  min-width: 200px;
+}
+
+.allparcels {
+  display: flex;
+  gap: 10px;
 }

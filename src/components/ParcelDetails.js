@@ -8,7 +8,7 @@ function ParcelDetails({ parcelInfo }) {
 
   return (
     <div>
-      <div className="d-flex justify-content-center barcode-container" ref={ref}>
+      <div className="barcode-container" ref={ref}>
         <Barcode value={parcelInfo.id} />
       </div>
       <Pdf targetRef={ref} filename="parcelCode.pdf">

@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getParcel } from '../services/ParcelsService';
-import Pdf from 'react-to-pdf';
-import ParcelInfo from '../components/ParcelInfo';
 import '../styles/pages/ParcelInformationPages.css';
 import { getAllRecords } from '../services/DeliveryRecordsService';
 import ParcelDetails from '../components/ParcelDetails';

@@ -82,7 +82,7 @@ function AllParcelsPage() {
                 <td>{getDeliveryStatus(x)}</td>
                 <td>{convertStartToNiceString(x)}</td>
                 <td>{convertDestToNiceString(x)}</td>
-                <td>
+                <td className="allparcels">
                   <Button
                     className="allparcels-button"
                     variant="dark"
@@ -104,6 +104,7 @@ function AllParcelsPage() {
                   {x.deliveryPlan.length !== 0 && (
                     <Button
                       variant="dark"
+                      className="allparcels-button"
                       onClick={() => {
                         setSelectedParcel(x);
                         setShowModal(true);

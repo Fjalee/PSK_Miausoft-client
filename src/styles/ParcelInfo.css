@@ -2,15 +2,18 @@
 
 .card-parcel-info {
   margin: auto;
-  width: 80%;
+  width: 120%;
   padding: 4vh;
+  padding-left: 10%;
+  padding-right: 10%;
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-top: 3px solid rgb(252, 103, 49);
   border-bottom: 3px solid rgb(252, 103, 49);
   border-left: none;
   border-right: none;
-  padding-bottom: 10rem;
+  padding-bottom: 5rem;
   font-family: 'Roboto', sans-serif;
+  margin-top: 10%;
 }
 
 .title {
@@ -51,4 +54,9 @@
 }
 .total .col-3 {
   padding: 0;
+}
+
+.barcode-container {
+  position: absolute;
+  margin-top: 10%;
 }

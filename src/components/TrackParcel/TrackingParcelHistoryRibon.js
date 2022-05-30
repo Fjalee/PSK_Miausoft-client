@@ -1,5 +1,6 @@
 import React from 'react';
 import TrackingParcelPoint from './TrackingParcelPoint/TrackingParcelPoint';
+import styles from './styles.module.css';
 
 function TrackingParcelHistoryRibon({ eventsInfo }) {
   const trackingPointsList = [];
@@ -8,10 +9,10 @@ function TrackingParcelHistoryRibon({ eventsInfo }) {
   });
 
   return (
-    <>
-      <h1>Where is the parcel?</h1>
-      {trackingPointsList}
-    </>
+    <div className={styles.trackingContainer}>
+      <h3 className={styles.title}>Parcel locations</h3>
+      <div>{trackingPointsList}</div>
+    </div>
   );
 }
 
