@@ -25,7 +25,6 @@ function ParcelInformationPage() {
     fetchData();
   }, []);
 
-  console.log(deliveryRecords);
   return parcelInfo != null && parcelInfo.payment.status === 'COMPLETED' ? (
     deliveryRecords != null && deliveryRecords.length > 0 ? (
       <div className={`row row-cols-2 ${styles.mainRow}`}>
