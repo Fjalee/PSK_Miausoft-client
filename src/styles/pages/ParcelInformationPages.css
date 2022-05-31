@@ -1,6 +1,8 @@
 /* CSS */
 .pdf-button {
-  margin-left: 45%;
+  display: block !important;
+  margin-left: auto;
+  margin-right: 0;
   background-color: #fbeee0;
   border: 2px solid rgb(252, 103, 49);
   border-radius: 30px;
@@ -17,8 +19,7 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  margin-top: 20%;
-  margin-bottom: -1rem;
+  margin-bottom: 1rem;
 }
 
 .pdf-button:hover {
