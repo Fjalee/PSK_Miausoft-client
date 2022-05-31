@@ -123,20 +123,23 @@ function AllParcelsPage() {
                         setShowModal(true);
                       }}
                     >
-                      Complete Delivery Plan Tasks
+                      Complete Delivery
                     </Button>
                   )}
-                  {x.deliveryPlan.length === 0 &&(
-                  <Button
-                    variant="dark"
-                    onClick={() => {
-                      navigate(
-                        `/admin/editOrder/${x.id}/` +
-                        `${convertToDeliveryMethodToPath(x.deliveryMethod)}`);
-                    }}
-                  >
-                    Edit Order
-                  </Button>
+                  {x.deliveryPlan.length === 0 && (
+                    <Button
+                      variant="dark"
+                      className="allparcels-button"
+                      onClick={() => {
+                        navigate(
+                          `/admin/editOrder/${x.id}/${convertToDeliveryMethodToPath(
+                            x.deliveryMethod,
+                          )}`,
+                        );
+                      }}
+                    >
+                      Edit Order
+                    </Button>
                   )}
                 </td>
               </tr>
