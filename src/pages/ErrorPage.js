@@ -54,10 +54,7 @@ function ErrorPage() {
         <p>Page not found</p>
         <div className="buttons-con">
           <div className="action-link-wrap">
-            <a onClick="history.back(-1)" className="link-button link-back-button">
-              Go Back
-            </a>
-            <a href="" className="link-button">
+            <a href="/" className="link-button">
               Go to Home Page
             </a>
           </div>

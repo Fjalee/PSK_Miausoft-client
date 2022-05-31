@@ -229,7 +229,7 @@ function CreateOrderPage() {
               </Tooltip>
             }
           >
-            <PatchQuestionFill className="" size={36} />
+            <PatchQuestionFill className="patch-question" size={48} />
           </OverlayTrigger>
         </Form.Group>
         <div className="row mt-2">

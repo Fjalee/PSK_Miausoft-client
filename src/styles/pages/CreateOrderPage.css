@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&family=Yellowtail&display=swap');
 
 .parcel-size {
-  margin-bottom: 7%;
+  margin-bottom: 6%;
   font-family: 'Roboto', sans-serif;
+  margin-top: 1%;
 }
 
 .paypal-button {
@@ -23,4 +24,9 @@
   justify-content: center;
   padding: 10px;
   padding-top: 20px;
+}
+
+.patch-question {
+  position: absolute;
+  margin-left: 8%;
 }
