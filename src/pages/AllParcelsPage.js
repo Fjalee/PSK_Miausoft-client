@@ -33,6 +33,19 @@ const getDeliveryStatus = (parcel) => {
   }
 };
 
+const convertToDeliveryMethodToPath = (method) => {
+  switch (method) {
+    case 'HOME_TO_HOME':
+      return 'HomeToHome';
+    case 'HOME_TO_PARCEL_MACHINE':
+      return 'HomeToParcelMachine';
+    case 'PARCEL_MACHINE_TO_HOME':
+      return 'ParcelMachineToHome';
+    case 'PARCEL_MACHINE_TO_PARCEL_MACHINE':
+      return 'ParcelMachineToParcelMachine';
+  }
+};
+
 function AllParcelsPage() {
   const navigate = useNavigate();
   const [parcels, setParcels] = useState([]);
@@ -112,6 +125,18 @@ function AllParcelsPage() {
                     >
                       Complete Delivery Plan Tasks
                     </Button>
+                  )}
+                  {x.deliveryPlan.length === 0 &&(
+                  <Button
+                    variant="dark"
+                    onClick={() => {
+                      navigate(
+                        `/admin/editOrder/${x.id}/` +
+                        `${convertToDeliveryMethodToPath(x.deliveryMethod)}`);
+                    }}
+                  >
+                    Edit Order
+                  </Button>
                   )}
                 </td>
               </tr>

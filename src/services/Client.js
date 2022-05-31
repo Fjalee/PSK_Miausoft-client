@@ -19,7 +19,7 @@ const reqInterceptor = (msalInstance, account) => async (request) => {
 function AxiosInterceptor({children}) {
   const { instance: msalInstance, accounts } = useMsal();
   const account = useAccount(accounts[0]);
-  if (instance.interceptors.request['handlers'].length === 0) {
+  if (account && instance.interceptors.request['handlers'].length === 0) {
     instance.interceptors.request.use(reqInterceptor(msalInstance, account));
   }
   return children;

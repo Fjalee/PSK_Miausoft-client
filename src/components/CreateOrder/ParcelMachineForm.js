@@ -2,7 +2,7 @@ import React from 'react';
 import { Form } from 'react-bootstrap';
 import '../../styles/ParcelMachineForm.css';
 
-function ParcelMachineForm({ start, machines, onChange }) {
+function ParcelMachineForm({ start, machines, onChange, parcelMachine }) {
   const helper = (first, second) => (start === true ? first : second);
 
   return (
@@ -12,6 +12,7 @@ function ParcelMachineForm({ start, machines, onChange }) {
         name={helper('startParcelMachineId', 'destinationParcelMachineId')}
         required
         onChange={onChange}
+        value={parcelMachine}
       >
         <option value="" hidden>
           Choose Parcel Machine
