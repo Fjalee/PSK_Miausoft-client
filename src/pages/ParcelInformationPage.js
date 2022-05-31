@@ -26,7 +26,7 @@ function ParcelInformationPage() {
   }, []);
 
   return parcelInfo != null && parcelInfo.payment.status === 'COMPLETED' ? (
-    deliveryRecords != null ? (
+    deliveryRecords != null && deliveryRecords.length > 0 ? (
       <div className={`row row-cols-2 ${styles.mainRow}`}>
         <div className={`col ${styles.mainCol}`}>
           <TrackingParcelHistoryRibon eventsInfo={deliveryRecords} />
@@ -36,7 +36,12 @@ function ParcelInformationPage() {
         </div>
       </div>
     ) : (
-      <ParcelDetails parcelInfo={parcelInfo} />
+      <div style={{
+        width: '40%',
+        margin: '2rem auto',
+      }}>
+        <ParcelDetails parcelInfo={parcelInfo} />
+      </div>
     )
   ) : (
     <ErrorPage />

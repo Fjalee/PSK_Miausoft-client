@@ -3,14 +3,12 @@ import Barcode from 'react-barcode';
 import Pdf from 'react-to-pdf';
 import ParcelInfo from './ParcelInfo';
 
+
 function ParcelDetails({ parcelInfo }) {
   const ref = useRef();
 
   return (
     <div>
-      <div className="barcode-container" ref={ref}>
-        <Barcode value={parcelInfo.id} />
-      </div>
       <Pdf targetRef={ref} filename="parcelCode.pdf">
         {({ toPdf }) => (
           <button className="pdf-button" onClick={toPdf}>
@@ -18,7 +16,16 @@ function ParcelDetails({ parcelInfo }) {
           </button>
         )}
       </Pdf>
-      <ParcelInfo data={parcelInfo} />
+      <div ref={ref}>
+        <div>
+        <div className="barcode-container">
+          <Barcode value={parcelInfo.id} />
+        </div>
+        </div>
+        <div>
+        <ParcelInfo data={parcelInfo} />
+        </div>
+      </div>
     </div>
   );
 }

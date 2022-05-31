@@ -5,6 +5,7 @@ function ErrorPage() {
   return (
     <div>
       <svg
+        className='error-page-svg'
         width="380px"
         height="500px"
         viewBox="0 0 837 1045"
